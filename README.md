@@ -1,6 +1,6 @@
-# Llama 3.2B Chatbot with Streamlit & Groq
+# Llama 3.3 70B Chatbot with Streamlit & Groq
 
-A simple yet powerful chatbot web application built with Streamlit and powered by Groq's Llama 3.2B model.
+A simple yet powerful chatbot web application built with Streamlit and powered by Groq's Llama 3.3 70B model.
 
 ## Features
 
@@ -49,6 +49,7 @@ My_First_Chatbot/
    ```bash
    pip install -r requirements.txt
    ```
+   Note: `httpx==0.24.1` is pinned for compatibility with the current Groq SDK version.
 
 4. **Set up your API key**
    - The `.env` file already contains your Groq API key
@@ -89,7 +90,7 @@ My_First_Chatbot/
 
 ### Model Settings
 You can modify the model in `chatbot.py`:
-- Current: `llama-3.2b-vision-preview`
+- Current: `llama-3.3-70b-versatile`
 - Other Groq models available: Check [Groq documentation](https://console.groq.com/docs/models)
 
 ### Chat Parameters

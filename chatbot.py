@@ -20,7 +20,7 @@ class GroqChatbot:
             raise ValueError("GROQ_API_KEY environment variable not set")
         self.client = Groq(api_key=api_key)
         self.conversation_history = []
-        self.model = "llama-3.2b-vision-preview"  # Llama 3.2B model
+        self.model = "llama-3.3-70b-versatile"  # Meta Llama 3.3 70B model
     
     def chat(self, user_message: str) -> str:
         """

@@ -23,6 +23,7 @@ st.markdown("""
         border-radius: 0.5rem;
         display: flex;
         gap: 1rem;
+        color: black;
     }
     .user-message {
         background-color: #e3f2fd;
@@ -35,8 +36,8 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Title and description
-st.title("🤖 Llama 3.2B Chatbot")
-st.markdown("Powered by Groq API | Chat with Llama 3.2B")
+st.title("🤖 Llama 3.3 70B Chatbot")
+st.markdown("Powered by Groq API | Chat with Llama 3.3 70B")
 
 # Initialize session state
 if "chatbot" not in st.session_state:
@@ -48,6 +49,9 @@ if "chatbot" not in st.session_state:
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
+
+if "input_key" not in st.session_state:
+    st.session_state.input_key = 0
 
 # Sidebar
 with st.sidebar:
@@ -63,7 +67,7 @@ with st.sidebar:
     st.markdown(
         """
         This chatbot uses:
-        - **Model**: Llama 3.2B
+        - **Model**: Llama 3.3 70B
         - **Provider**: Groq API
         - **Framework**: Streamlit
         
@@ -99,7 +103,8 @@ with col1:
     user_input = st.text_input(
         "Your message:",
         placeholder="Ask me anything...",
-        label_visibility="collapsed"
+        label_visibility="collapsed",
+        key=f"user_input_{st.session_state.input_key}"
     )
 
 with col2:
@@ -116,6 +121,9 @@ if send_button and user_input:
     
     # Add assistant response to display
     st.session_state.messages.append({"role": "assistant", "content": response})
+    
+    # Increment input key to clear the text field
+    st.session_state.input_key += 1
     
     # Rerun to update chat display
     st.rerun()
